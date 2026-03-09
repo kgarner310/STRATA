@@ -1,0 +1,29 @@
+Synthesize the following analysis results into a 10-second parking lot brief for a commercial insurance producer.
+
+The brief should be scannable and actionable -- the producer is about to walk into a meeting.
+
+ACCOUNT: {{ account_name }}
+INDUSTRY: {{ industry }}
+REVENUE: {{ "${:,.0f}".format(revenue) if revenue else "N/A" }}
+EMPLOYEES: {{ employee_count or "N/A" }}
+
+ANALYSIS HIGHLIGHTS:
+- Risk Score: {{ risk_score }}/100
+- Top Exposures: {{ top_exposures }}
+
+COVERAGE GAPS:
+{{ coverage_gaps }}
+
+STRATEGY SUMMARY:
+{{ strategy_summary }}
+
+MARKET SIGNALS:
+{{ market_signals }}
+
+Format the brief as JSON:
+{
+    "things_to_confirm": ["<question 1>", "<question 2>", "<question 3>"],
+    "coverage_to_discuss": "<single most important coverage gap>",
+    "underwriter_concern": "<single biggest underwriter concern>",
+    "opening_talking_point": "<one sentence to open the conversation>"
+}

@@ -1,0 +1,38 @@
+Analyze the following commercial insurance account and identify key exposures, risk factors, and industry-specific concerns.
+
+ACCOUNT DETAILS:
+- Business Name: {{ business_name }}
+- Business Type: {{ business_type }}
+- NAICS Code: {{ naics_code or "Not provided" }}
+- Location: {{ city }}, {{ state }}
+- Annual Revenue: {{ "${:,.0f}".format(revenue) if revenue else "Not provided" }}
+- Employee Count: {{ employee_count or "Not provided" }}
+- Vehicle Count: {{ vehicle_count or "Not provided" }}
+- Years in Business: {{ years_in_business or "Not provided" }}
+
+{% if current_policies %}
+CURRENT COVERAGE:
+{% for policy in current_policies %}
+- {{ policy.get("line_of_business", "Unknown") }}: {{ policy.get("carrier", "Unknown carrier") }}
+  {% if policy.get("premium") %}Premium: ${{ "{:,.0f}".format(policy["premium"]) }}{% endif %}
+  {% if policy.get("limits") %}Limits: {{ policy["limits"] }}{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if description %}
+ADDITIONAL CONTEXT:
+{{ description }}
+{% endif %}
+
+Provide your analysis as a JSON object with the following structure:
+{
+    "risk_score": <integer 0-100>,
+    "key_exposures": [
+        {"type": "<exposure type>", "severity": "low|medium|high|critical", "description": "<detailed description>", "mitigation_notes": "<what to check or recommend>"}
+    ],
+    "industry_benchmarks": {<relevant industry metrics>},
+    "talking_points": [
+        {"topic": "<topic>", "point": "<key point for the producer>", "supporting_data": "<data source or evidence>"}
+    ],
+    "questions_to_ask": ["<discovery question 1>", "<discovery question 2>", ...]
+}

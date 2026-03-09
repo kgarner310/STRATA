@@ -1,0 +1,39 @@
+Review the following commercial insurance account's current coverage and identify gaps, inadequacies, and recommendations.
+
+ACCOUNT DETAILS:
+- Business Name: {{ business_name }}
+- Business Type: {{ business_type }}
+- Location: {{ state }}
+- Annual Revenue: {{ "${:,.0f}".format(revenue) if revenue else "Not provided" }}
+- Employee Count: {{ employee_count or "Not provided" }}
+
+{% if current_policies %}
+CURRENT COVERAGE:
+{% for policy in current_policies %}
+- {{ policy.get("line_of_business", "Unknown") }}: {{ policy.get("carrier", "Unknown carrier") }}
+  {% if policy.get("premium") %}Premium: ${{ "{:,.0f}".format(policy["premium"]) }}{% endif %}
+  {% if policy.get("limits") %}Limits: {{ policy["limits"] }}{% endif %}
+  {% if policy.get("deductibles") %}Deductibles: {{ policy["deductibles"] }}{% endif %}
+{% endfor %}
+{% else %}
+No current coverage information provided.
+{% endif %}
+
+{% if description %}
+ADDITIONAL CONTEXT:
+{{ description }}
+{% endif %}
+
+Analyze the coverage program and provide your assessment as JSON:
+{
+    "gaps": [
+        {"line_of_business": "<line>", "gap_type": "missing|inadequate_limit|exclusion_risk|sublimit_concern",
+         "severity": "low|medium|high|critical", "description": "<detailed description>",
+         "recommendation": "<what to do>", "potential_impact": "<financial impact if gap is exploited>"}
+    ],
+    "recommendations": [
+        {"line_of_business": "<line>", "recommendation": "<action>", "rationale": "<why>", "priority": "low|medium|high"}
+    ],
+    "adequacy_score": <integer 0-100>,
+    "summary": "<overall coverage assessment>"
+}

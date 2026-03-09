@@ -1,0 +1,34 @@
+Develop a submission strategy for the following commercial insurance account. Identify target carriers, positioning approach, and key differentiators.
+
+ACCOUNT DETAILS:
+- Business Name: {{ business_name }}
+- Business Type: {{ business_type }}
+- Location: {{ city }}, {{ state }}
+- Annual Revenue: {{ "${:,.0f}".format(revenue) if revenue else "Not provided" }}
+- Employee Count: {{ employee_count or "Not provided" }}
+
+{% if current_policies %}
+CURRENT COVERAGE:
+{% for policy in current_policies %}
+- {{ policy.get("line_of_business", "Unknown") }}: {{ policy.get("carrier", "Unknown carrier") }}
+{% endfor %}
+{% endif %}
+
+{% if description %}
+ADDITIONAL CONTEXT:
+{{ description }}
+{% endif %}
+
+Provide your submission strategy as JSON:
+{
+    "target_carriers": [
+        {"carrier_name": "<name>", "appetite_level": "strong|moderate|limited",
+         "rationale": "<why this carrier>", "key_concerns": ["<concern 1>", "<concern 2>"]}
+    ],
+    "positioning_notes": [
+        {"topic": "<topic>", "framing": "<how to frame this for underwriters>", "supporting_evidence": "<evidence>"}
+    ],
+    "submission_summary": "<overall strategy summary>",
+    "key_differentiators": ["<differentiator 1>", "<differentiator 2>"],
+    "underwriter_concerns": ["<anticipated concern 1>", "<anticipated concern 2>"]
+}

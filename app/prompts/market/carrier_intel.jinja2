@@ -1,0 +1,29 @@
+Provide current market intelligence for the following commercial insurance account. Include market signals, carrier appetite, and industry outlook.
+
+ACCOUNT DETAILS:
+- Business Name: {{ business_name }}
+- Business Type: {{ business_type }}
+- Location: {{ city }}, {{ state }}
+- Annual Revenue: {{ "${:,.0f}".format(revenue) if revenue else "Not provided" }}
+- Employee Count: {{ employee_count or "Not provided" }}
+
+{% if current_policies %}
+CURRENT CARRIERS:
+{% for policy in current_policies %}
+- {{ policy.get("carrier", "Unknown") }} ({{ policy.get("line_of_business", "Unknown") }})
+{% endfor %}
+{% endif %}
+
+Provide market intelligence as JSON:
+{
+    "signals": [
+        {"signal_type": "trend|alert|opportunity|risk", "title": "<signal title>",
+         "description": "<details>", "relevance": "low|medium|high", "source": "<data source>"}
+    ],
+    "carrier_intel": [
+        {"carrier_name": "<name>", "market_position": "<position>",
+         "appetite_notes": "<appetite details>", "recent_changes": "<recent changes>"}
+    ],
+    "industry_outlook": "<overall industry insurance market outlook>",
+    "talking_points": ["<market-based talking point 1>", "<market-based talking point 2>"]
+}
