@@ -2,7 +2,7 @@ name: Deploy Venom Softball to GitHub Pages
 
 on:
   push:
-    branches: [claude/deploy-softball-tracker-wl4Kt]
+    branches: [main, claude/deploy-softball-tracker-wl4Kt]
     paths: [venom-softball/**]
   workflow_dispatch:
 
