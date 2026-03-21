@@ -1,6 +1,7 @@
 [build]
-  command = "npm install && npm run build"
-  publish = "dist"
+  base = "venom-softball"
+  command = "npm run build"
+  publish = "venom-softball/dist"
 
 [build.environment]
   NODE_VERSION = "18"
