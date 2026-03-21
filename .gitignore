@@ -216,3 +216,6 @@ frontend/out/
 
 # Claude Code
 .claude/
+
+# Local Netlify folder
+.netlify
