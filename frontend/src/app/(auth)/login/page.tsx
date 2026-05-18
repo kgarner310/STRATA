@@ -57,7 +57,6 @@ export default function LoginPage() {
                 type="email"
                 required
                 autoComplete="email"
-                defaultValue="producer@keystone.com"
               />
             </div>
             <div className="space-y-2">
@@ -68,7 +67,6 @@ export default function LoginPage() {
                 type="password"
                 required
                 autoComplete="current-password"
-                defaultValue="producer123!"
               />
             </div>
             {error && <p className="text-sm text-destructive">{error}</p>}
@@ -76,9 +74,6 @@ export default function LoginPage() {
               {pending ? "Signing in..." : "Sign in"}
             </Button>
           </form>
-          <p className="mt-4 text-xs text-center text-muted-foreground">
-            Demo: producer@keystone.com / producer123!
-          </p>
         </CardContent>
       </Card>
     </div>

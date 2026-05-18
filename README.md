@@ -29,7 +29,7 @@ pip install -e ".[dev]"
 # Run migrations
 alembic upgrade head
 
-# Seed demo data (creates users + 4 demo accounts)
+# Seed initial users only
 python -m app.seeds.seed_all
 
 # Start the API
@@ -47,10 +47,7 @@ npm run dev
 
 ### 4. Open the app
 
-Navigate to http://localhost:3000 and log in:
-
-- **Producer**: producer@keystone.com / producer123!
-- **Admin**: admin@keystone.com / admin123!
+Navigate to http://localhost:3000 and log in with an account you created or seeded locally.
 
 ## Full Stack with Docker
 
@@ -58,7 +55,7 @@ Navigate to http://localhost:3000 and log in:
 docker-compose up --build
 ```
 
-This starts PostgreSQL, the FastAPI backend, and the Next.js frontend. Then run migrations and seed:
+This starts PostgreSQL, the FastAPI backend, and the Next.js frontend. Then run migrations and create initial users:
 
 ```bash
 docker-compose exec api alembic upgrade head
@@ -101,10 +98,7 @@ docker-compose exec api python -m app.seeds.seed_all
 
 | Account | Industry | Location |
 |---------|----------|----------|
-| Bella Napoli Italian Restaurant | Restaurant | Lancaster, PA |
-| GreenEdge Landscaping | Landscaping | Harrisburg, PA |
-| Precision Steel Fabricators | Manufacturing | Allentown, PA |
-| Maple Grove Apartments | Apartment Complex | York, PA |
+Demo accounts are no longer seeded by default. Create a real account through intake, then run STRATA analysis.
 
 ## Tests
 

@@ -6,9 +6,11 @@ from app.services.core.base import BasePillarService
 from app.services.core.mock_responses import MOCK_STRATEGY
 
 SYSTEM_PROMPT = """You are an expert commercial insurance submission strategist. Analyze the account and
-recommend target carriers, positioning strategy, and key differentiators. Return as JSON with:
+build a producer-first submission plan. Do not name specific insurance companies unless they were
+provided by the user. Use generic placement paths and durable underwriting friction instead of
+static carrier appetite guesses. Return as JSON with:
 {
-    "target_carriers": [{"carrier_name": str, "appetite_level": "strong"|"moderate"|"limited",
+    "target_carriers": [{"carrier_name": "Placement path <number>", "appetite_level": "strong"|"moderate"|"limited",
                          "rationale": str, "key_concerns": [str]}],
     "positioning_notes": [{"topic": str, "framing": str, "supporting_evidence": str}],
     "submission_summary": str,
