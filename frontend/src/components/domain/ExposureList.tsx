@@ -25,9 +25,9 @@ export function ExposureList({ exposures }: { exposures: ExposureItem[] }) {
                 <SeverityBadge severity={exp.severity} />
               </div>
               <p className="text-muted-foreground">{exp.description}</p>
-              <p className="text-xs text-muted-foreground mt-0.5">
-                Impact: {exp.potential_impact}
-              </p>
+              {exp.mitigation_notes ? (
+                <p className="text-xs text-muted-foreground mt-0.5">Verify: {exp.mitigation_notes}</p>
+              ) : null}
             </div>
           </li>
         ))}

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Building2, Clock, MapPin } from "lucide-react";
+import { ArrowLeft, Building2, Clock, FileText, MapPin, PenLine, Route } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import type { AccountResponse } from "@/lib/types";
@@ -44,12 +44,18 @@ export function AccountHeader({ account }: { account: AccountResponse }) {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Link
-            href={`/accounts/${account.id}/brief`}
-            className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
-          >
-            Parking Lot Brief
+          <Link href={`/accounts/${account.id}/brief`} className={cn(buttonVariants({ size: "sm" }))}>
+            <FileText className="h-3.5 w-3.5" />
+            Generate Producer Brief
           </Link>
+          <a href="#submission-plan" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+            <Route className="h-3.5 w-3.5" />
+            Build Submission Plan
+          </a>
+          <a href="#submission-narrative" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+            <PenLine className="h-3.5 w-3.5" />
+            Draft Submission Narrative
+          </a>
           <Badge variant={account.status === "active" ? "default" : "secondary"}>
             {account.status}
           </Badge>

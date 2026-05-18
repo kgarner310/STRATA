@@ -7,7 +7,6 @@ import { ExposureList } from "@/components/domain/ExposureList";
 import { RiskScoreGauge } from "@/components/domain/RiskScoreGauge";
 import { TalkingPointsList } from "@/components/domain/TalkingPointsList";
 import { QuestionsList } from "@/components/domain/QuestionsList";
-import { ReasoningBlock } from "@/components/domain/ReasoningBlock";
 import { useAnalysis } from "@/hooks/useAnalysis";
 
 export function AnalysisPanel({ accountId }: { accountId: string }) {
@@ -26,11 +25,12 @@ export function AnalysisPanel({ accountId }: { accountId: string }) {
       ) : data ? (
         <div className="space-y-5">
           <RiskScoreGauge score={data.risk_score} />
-          <p className="text-sm text-muted-foreground">{data.industry_comparison}</p>
-          <ExposureList exposures={data.exposures} />
+          <p className="text-sm text-muted-foreground">
+            STRATA prioritizes what the producer should verify before the first call, not static carrier guesses.
+          </p>
+          <ExposureList exposures={data.key_exposures} />
           <TalkingPointsList points={data.talking_points} />
-          <QuestionsList questions={data.key_questions} />
-          <ReasoningBlock reasoning={data.reasoning} />
+          <QuestionsList questions={data.questions_to_ask} />
         </div>
       ) : null}
     </PanelContainer>

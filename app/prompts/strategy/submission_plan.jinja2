@@ -1,4 +1,4 @@
-Develop a submission strategy for the following commercial insurance account. Identify target carriers, positioning approach, and key differentiators.
+Develop a submission plan for the following commercial insurance account. Identify placement paths, positioning approach, key differentiators, and friction that must be pre-answered before submission.
 
 ACCOUNT DETAILS:
 - Business Name: {{ business_name }}
@@ -22,13 +22,18 @@ ADDITIONAL CONTEXT:
 Provide your submission strategy as JSON:
 {
     "target_carriers": [
-        {"carrier_name": "<name>", "appetite_level": "strong|moderate|limited",
-         "rationale": "<why this carrier>", "key_concerns": ["<concern 1>", "<concern 2>"]}
+        {"carrier_name": "Placement path <number>", "appetite_level": "strong|moderate|limited",
+         "rationale": "<why this placement path makes sense without naming a carrier>", "key_concerns": ["<concern 1>", "<concern 2>"]}
     ],
     "positioning_notes": [
         {"topic": "<topic>", "framing": "<how to frame this for underwriters>", "supporting_evidence": "<evidence>"}
     ],
-    "submission_summary": "<overall strategy summary>",
+    "submission_summary": "<overall submission plan summary>",
     "key_differentiators": ["<differentiator 1>", "<differentiator 2>"],
     "underwriter_concerns": ["<anticipated concern 1>", "<anticipated concern 2>"]
 }
+
+Do not name specific insurance companies unless they were provided by the user.
+Use generic placement paths such as "standard package path", "specialty coverage path",
+"monoline cyber path", or "excess/umbrella path". Focus on what a producer must
+verify and pre-answer before submission.

@@ -1,4 +1,4 @@
-Provide current market intelligence for the following commercial insurance account. Include market signals, carrier appetite, and industry outlook.
+Provide market fit and placement-friction intelligence for the following commercial insurance account. Include market signals, durable placement friction, and industry outlook.
 
 ACCOUNT DETAILS:
 - Business Name: {{ business_name }}
@@ -21,9 +21,13 @@ Provide market intelligence as JSON:
          "description": "<details>", "relevance": "low|medium|high", "source": "<data source>"}
     ],
     "carrier_intel": [
-        {"carrier_name": "<name>", "market_position": "<position>",
-         "appetite_notes": "<appetite details>", "recent_changes": "<recent changes>"}
+        {"carrier_name": "Market conversation <number>", "market_position": "<placement path or underwriting lane>",
+         "appetite_notes": "<what must make sense for a market to engage>", "recent_changes": "<durable friction or timing note>"}
     ],
     "industry_outlook": "<overall industry insurance market outlook>",
     "talking_points": ["<market-based talking point 1>", "<market-based talking point 2>"]
 }
+
+Do not name specific insurance companies unless the user provided an agency market list.
+Carrier appetite changes quickly, so focus on durable underwriting friction, submission
+readiness, and what the producer should pre-answer.

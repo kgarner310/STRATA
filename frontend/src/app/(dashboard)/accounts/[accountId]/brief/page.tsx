@@ -23,9 +23,9 @@ export default function BriefPage() {
           <ArrowLeft className="h-4 w-4" />
         </Link>
         <div>
-          <h1 className="text-xl font-bold tracking-tight">Parking Lot Brief</h1>
+          <h1 className="text-xl font-bold tracking-tight">Producer Brief</h1>
           <p className="text-sm text-muted-foreground">
-            10-second prep before you walk in
+            Pre-call intelligence, questions, and coverage points before you walk in
           </p>
         </div>
       </div>

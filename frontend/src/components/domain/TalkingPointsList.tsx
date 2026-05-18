@@ -4,7 +4,7 @@ import { MessageSquare } from "lucide-react";
 import type { TalkingPoint } from "@/lib/types";
 
 export function TalkingPointsList({ points }: { points: TalkingPoint[] }) {
-  const sorted = [...points].sort((a, b) => a.priority - b.priority);
+  const sorted = [...points].sort((a, b) => (a.priority ?? 0) - (b.priority ?? 0));
 
   return (
     <div className="space-y-3">

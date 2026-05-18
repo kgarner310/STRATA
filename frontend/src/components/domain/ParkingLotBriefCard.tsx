@@ -14,9 +14,7 @@ export function ParkingLotBriefCard({ brief }: { brief: ParkingLotBriefResponse 
   return (
     <Card className="max-w-2xl mx-auto">
       <CardHeader className="pb-3">
-        <CardTitle className="text-lg">
-          Parking Lot Brief &mdash; {brief.account_name}
-        </CardTitle>
+        <CardTitle className="text-lg">Producer Brief &mdash; {brief.account_name}</CardTitle>
         <p className="text-sm text-muted-foreground">
           {brief.industry}
           {brief.employee_count && ` \u00b7 ${brief.employee_count} employees`}
@@ -60,11 +58,9 @@ export function ParkingLotBriefCard({ brief }: { brief: ParkingLotBriefResponse 
             Coverage to Discuss
           </div>
           <ul className="space-y-1.5">
-            {brief.coverage_to_discuss.map((item, i) => (
-              <li key={i} className="text-sm pl-6 relative before:content-[''] before:absolute before:left-2 before:top-2 before:h-1.5 before:w-1.5 before:rounded-full before:bg-blue-500">
-                {item}
-              </li>
-            ))}
+            <li className="text-sm pl-6 relative before:content-[''] before:absolute before:left-2 before:top-2 before:h-1.5 before:w-1.5 before:rounded-full before:bg-blue-500">
+              {brief.coverage_to_discuss}
+            </li>
           </ul>
         </div>
 
