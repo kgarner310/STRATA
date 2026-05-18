@@ -94,10 +94,8 @@ docker-compose exec api python -m app.seeds.seed_all
 | GET | /api/v1/market/intel/:id | Market intelligence |
 | GET | /api/v1/brief/parking-lot/:id | Parking lot brief |
 
-## Demo Accounts
+## Test Accounts
 
-| Account | Industry | Location |
-|---------|----------|----------|
 Demo accounts are no longer seeded by default. Create a real account through intake, then run STRATA analysis.
 
 ## Tests

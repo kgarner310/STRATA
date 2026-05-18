@@ -21,8 +21,10 @@ export class ApiError extends Error {
   }
 }
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`/api/v1${path}`, {
+  const response = await fetch(`${API_BASE_URL}/api/v1${path}`, {
     credentials: "include",
     headers: {
       "Content-Type": "application/json",
