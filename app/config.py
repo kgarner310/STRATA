@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     session_max_age: int = 86400  # 24 hours
 
     # LLM
-    llm_provider: str = "mock"  # "openai" | "anthropic" | "mock"
+    llm_provider: str = "anthropic"  # "openai" | "anthropic" | "mock"
     anthropic_api_key: str | None = None
     openai_api_key: str | None = None
 

@@ -113,8 +113,22 @@ python -m pytest tests/ -v
 |----------|---------|-------------|
 | DATABASE_URL | required | PostgreSQL connection string |
 | SECRET_KEY | required | Session signing key |
-| LLM_PROVIDER | mock | "mock", "anthropic", or "openai" |
+| LLM_PROVIDER | anthropic | "anthropic", "openai", or "mock" |
 | ANTHROPIC_API_KEY | - | Required if provider is anthropic |
 | OPENAI_API_KEY | - | Required if provider is openai |
 | DEBUG | false | Enable debug mode |
 | CORS_ORIGINS | ["http://localhost:3000"] | Allowed CORS origins |
+
+## Live LLM smoke test
+
+```bash
+LLM_PROVIDER=anthropic ANTHROPIC_API_KEY=... python scripts/live_smoke.py
+```
+
+On PowerShell:
+
+```powershell
+$env:LLM_PROVIDER="anthropic"
+$env:ANTHROPIC_API_KEY="..."
+.\.venv\Scripts\python.exe scripts\live_smoke.py
+```
